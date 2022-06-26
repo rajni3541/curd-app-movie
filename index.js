@@ -14,9 +14,7 @@ app.get("/", (req, res) => {
 
 const port = 8080;
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+
 
 mongoose
   .connect(process.env.DB_CONNECT, { useNewUrlParser: true })
@@ -27,4 +25,11 @@ mongoose
 
 app.use(express.json(), cors());
 
+
+
 app.use("/", routes);
+
+app.listen(port, () => {
+  console.log(`App running on port ${port}`);
+});
+
